@@ -2,41 +2,42 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
+        <title>Article Analysis</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet"> 
     </head>
 
     <body>
 
         <header>
             <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+                <h1>Article Analysis</h1>
             </div>
         </header>
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <input id="address" type="text" name="input" value="" onblur="onBlur()" placeholder="Enter a website address here">
+                    <input id='submit-button' type="submit" name="" value="Analyze" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
-            <section>
+            </section>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+            <section id='error-message'>This is an error message</section>
+
+            <section id='result'>
+                <h2>Language:</h2>
+                <p></p>
+                <h2>Category:</h2>
+                <p></p>
+                <h2>Topics discussed:</h2>
+                <p></p>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>Content and final website design by Meghan Dunham &copy;2020
+                <br>Basic starter code provided by Udacity as part of their Front End Nanodegree program.
+                <br>Text analysis provided by <a href='https://www.meaningcloud.com/' target='_blank'>Meaning Cloud</a>.</p>
         </footer>
 
     </body>

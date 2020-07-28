@@ -1,0 +1,14 @@
+#error-message {
+    display: none; /* Not visible by default */
+    border: 1px solid darkred;
+    border-radius: 4px;
+    background-color: mistyrose;
+    color: darkred;
+    margin: 1em 0;
+    padding: 1em;
+    text-align: left;
+
+    &.visible {
+        display: block;
+    }
+}

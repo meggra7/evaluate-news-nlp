@@ -1,0 +1,43 @@
+$color-primary: #c62828;
+$color-primary-light: #ff5f52;
+$color-primary-dark: #8e0000;
+$color-secondary: #546e7a;
+$color-secondary-light: #819ca9;
+$color-secondary-dark: #29434e;
+$color-text-primary: #000a12;
+$font-family-sans-serif: 'Roboto', Arial, Helvetica, sans-serif;
+$font-family-serif: 'Roboto Slab', 'Courier New', Courier, monospace;
+
+body {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    min-width: 400px;
+    font-size: 18px;
+    font-family: $font-family-sans-serif;
+    font-weight: 100;
+    color: $color-text-primary;
+}
+
+h1 {
+    font-family: $font-family-serif;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+main {
+    width: 80%;
+}
+
+section {
+    margin: 32px 0;
+}
+
+@media (min-width: 1000px){
+    main {
+        width: 60%;
+    }
+}

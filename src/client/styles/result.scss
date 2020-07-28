@@ -1,0 +1,45 @@
+@use 'base' as *;
+
+#result {
+    visibility: hidden;
+    opacity: 0; // Not shown initially
+    display: grid; 
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 2em;
+    font-family: $font-family-serif;
+    font-weight: 400;
+    position: relative;
+    background-color: ivory;
+    box-shadow: 1px 1px 4px darkgray;
+    padding: 2em;
+
+    // Add layers to look like a stack of papers
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: ivory;
+        box-shadow: inherit;
+    }
+
+    // Move one 'paper' slighty to the left
+    &::before {
+        left: -10px;
+        top: 10px;
+        z-index: -1;
+    }
+
+    // Move other 'paper' slightly to the right
+    &::after {
+        left: 15px;
+        top: 15px;
+        z-index: -2;
+    }
+
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+
+}
