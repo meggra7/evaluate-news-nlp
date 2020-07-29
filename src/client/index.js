@@ -13,10 +13,14 @@ export {
 };
 
 import { 
-    handleSubmit 
+    handleSubmit, 
+    getLanguage,
+    dummyGetLanguage,
 } from './js/formHandler'
 export {
-    handleSubmit
+    handleSubmit, 
+    getLanguage,
+    dummyGetLanguage,
 };
 
 /* Import all styles */
