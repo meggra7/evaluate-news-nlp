@@ -1,13 +1,17 @@
 function handleSubmit(event) {
     event.preventDefault()
 
-    // check what text was put into the form field
-    let result = document.getElementById('result');
-    result.classList.add('visible');
+    // Get the text from the form field
+    const input = document.getElementById('address').value;
 
-    // Display error message
-    let error = document.getElementById('error-message');
-    error.classList.add('visible');
+    // Check if text is website format and display response
+    if (Client.isWebsite(input)) {
+        Client.showResult();
+    } else {
+        Client.showError('Please enter the full website including the http:// or https:// prefix.')
+    }    
 }
 
-export { handleSubmit }
+export { 
+    handleSubmit 
+}
