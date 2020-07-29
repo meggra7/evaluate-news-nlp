@@ -4,9 +4,12 @@
     border-radius: 4px;
     background-color: mistyrose;
     color: darkred;
+    width: 100%;
     margin: 1em 0;
     padding: 1em;
     text-align: left;
+    position: absolute;
+    top: 0;
 
     &.visible {
         display: block;
