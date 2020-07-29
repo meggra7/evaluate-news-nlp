@@ -42,4 +42,12 @@
         opacity: 1;
     }
 
+    p {
+        text-transform: capitalize;
+
+        &.ignore-transform {
+            text-transform: none;
+        }
+    }
+
 }

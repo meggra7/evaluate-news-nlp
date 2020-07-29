@@ -22,7 +22,7 @@ function showError(errorMessage) {
     mError.classList.add('visible');
 }
 
-function showResult(site, language) {
+function showResult(analysis) {
 
     // Hide any error
     mError.classList.remove('visible');
@@ -32,9 +32,9 @@ function showResult(site, language) {
     // Get references to and set our display fields
     const resultContainer = document.getElementById('result');
     const resultFields = resultContainer.getElementsByTagName('p');
-    resultFields[0].textContent = site;
-    resultFields[1].textContent = language;
-    // resultFields[2].textContent = category;
+    resultFields[0].textContent = analysis.urlToAnalyze;
+    resultFields[1].textContent = analysis.languageName;
+    resultFields[2].textContent = analysis.category;
     // resultFields[3].textContent = topics;
 
     // Display result

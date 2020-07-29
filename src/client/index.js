@@ -14,13 +14,19 @@ export {
 
 import { 
     handleSubmit, 
+    analyzeArticle,
     getLanguage,
+    getCategory,
     dummyGetLanguage,
+    dummyGetCategory
 } from './js/formHandler'
 export {
     handleSubmit, 
+    analyzeArticle,
     getLanguage,
+    getCategory,
     dummyGetLanguage,
+    dummyGetCategory
 };
 
 /* Import all styles */
