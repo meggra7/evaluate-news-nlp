@@ -1,0 +1,16 @@
+#loading-indicator {
+    display: none; /* Not visible by default */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50%;
+    
+    &.visible {
+        display: block;
+    }
+
+    #loading-icon {
+        width: 100px;
+        height: 100px;
+    }
+}

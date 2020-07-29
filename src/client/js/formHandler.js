@@ -12,101 +12,40 @@ function handleSubmit(event) {
     }    
 }
 
-function analyzeArticle(urlToAnalyze) {
+async function analyzeArticle(urlToAnalyze) {
 
-    Client.dummyGetLanguage(urlToAnalyze)
-    .then(analysisWithLanguage => Client.dummyGetCategory(analysisWithLanguage))
-    .then(analysisComplete => Client.showResult(analysisComplete));
-}
-
-async function getLanguage(urlToAnalyze) {
-
-    // FOR DEBUGGING
-    const API_KEY = 'db75993aa28f043980c4ac49d357579d';
-
-    const endPoint = `http://api.meaningcloud.com/lang-2.0?key=${API_KEY}&url=${urlToAnalyze}`;
-
+    Client.showLoadingIndicator();
+    
     try {
-        // Fetch the data and convert to JSON
-        const response = await fetch(endPoint);
-        const languageData = await response.json();
 
-        // Pull and return just the pieces we want
-        const languageCode = languageData.language_list[0].language;
-        const languageName = languageData.language_list[0].name;
+        // Make request for data
+        const response = await fetch('http://localhost:8081/analyze', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({urlToAnalyze}),
+        });
 
-        // Return our first analysis adding language data
-        return {
-            urlToAnalyze,
-            languageCode,
-            languageName,
-        };
+        // Convert analysis object
+        const analysis = await response.json();
 
-    } catch(error) {
+        // Display result, whether error or analysis
+        if (analysis.error) {
+            console.log('error', analysis.error);
+            Client.showError('');
+        } else {
+            Client.showResult(analysis);
+        }
+        
+    } catch (error) {
         console.log('error', error);
-        Client.showError();
+        Client.showError('');
     };
 
-}
-
-async function getCategory(analysis) {
-
-    // FOR DEBUGGING
-    const API_KEY = 'db75993aa28f043980c4ac49d357579d';
-
-    const endPoint = `https://api.meaningcloud.com/class-2.0?key=${API_KEY}&url=${analysis.urlToAnalyze}&model=IPTC_en`;
-
-    try {
-        // Fetch the data and convert to JSON
-        const response = await fetch(endPoint);
-        const classificationData = await response.json();
-
-        // !! FOR DEBUGGING
-        console.log(classificationData);
-
-        // Pull and return just the pieces we want
-        const category = classificationData.category_list[0].label;
-
-        // !! FOR DEBUGGING
-        console.log(category);
-
-        // Return our updated analysis, now with category data
-        return {
-            urlToAnalyze: analysis.urlToAnalyze,
-            languageCode: analysis.languageCode,
-            languageName: analysis.languageName,
-            category,
-        };
-
-    } catch(error) {
-        console.log('error', error);
-        Client.showError();
-    };
-
-}
-
-async function dummyGetLanguage(urlToAnalyze) {
-    return {
-        urlToAnalyze,
-        languageCode: 'en',
-        languageName: 'English'
-    };
-}
-
-async function dummyGetCategory(analysis) {
-    return {
-        urlToAnalyze: analysis.urlToAnalyze,
-        languageCode: analysis.languageCode,
-        languageName: analysis.languageName,
-        category: 'arts, culture and entertainment - cinema'
-    };
 }
 
 export { 
     handleSubmit, 
     analyzeArticle,
-    getLanguage,
-    getCategory,
-    dummyGetLanguage,
-    dummyGetCategory
 }
