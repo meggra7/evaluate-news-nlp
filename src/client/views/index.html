@@ -36,5 +36,12 @@
                 <br>Basic starter code provided by Udacity as part of their Front End Nanodegree program.
                 <br>Text analysis provided by <a href='https://www.meaningcloud.com/' target='_blank'>Meaning Cloud</a>.</p>
         </footer>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            };
+        </script>
     </body>
 </html>

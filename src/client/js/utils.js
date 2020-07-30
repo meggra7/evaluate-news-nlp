@@ -39,7 +39,7 @@ function showError(errorMessage) {
 
     // Set error text and display
     if (errorMessage === '') {
-        mError.textContent = 'We\'re sorry, an error occurred while trying to analyze your article.  Please make sure you have entered a valid site address, or try again later.';
+        mError.textContent = 'We\'re sorry, an error occurred while trying to analyze your article.  Please check your internet connection and make sure you have entered a valid site address, then try again later.';
     } else {
         mError.textContent = errorMessage;
     };

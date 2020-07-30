@@ -15,8 +15,7 @@ function handleSubmit(event) {
     if (Client.isWebsite(input)) {
         Client.analyzeArticle(input);
     } else {
-        result = Client.showError('Please enter the full website including the http:// or https:// prefix.');
-        console.log(result);
+        Client.showError('Please enter the full website including the http:// or https:// prefix.');
     };
 }
 
