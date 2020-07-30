@@ -31,8 +31,8 @@ app.post('/analyze', (req, res) => {
 
     const urlToAnalyze = encodeURI(req.body.urlToAnalyze);
 
-    dummyGetLanguage(urlToAnalyze)
-    .then(partialAnalysis => dummyGetCategory(partialAnalysis))
+    getLanguage(urlToAnalyze)
+    .then(partialAnalysis => getCategory(partialAnalysis))
     .then(completeAnalysis => res.send(completeAnalysis))
     .catch(error => res.send({error}));
 });
