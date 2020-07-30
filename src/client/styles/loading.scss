@@ -1,12 +1,14 @@
 #loading-indicator {
     display: none; /* Not visible by default */
+    visibility: hidden;
     position: absolute;
     top: 0;
     left: 50%;
     translate: -50%;
-    
+
     &.visible {
         display: block;
+        visibility: visible;
     }
 
     #loading-icon {

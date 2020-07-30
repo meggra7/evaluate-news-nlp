@@ -1,5 +1,12 @@
+/**
+ * Validate data entered by user and proceed to analyze
+ * or return error.
+ * @param {*} event click on submit button
+ */
 function handleSubmit(event) {
-    event.preventDefault()
+
+    // Cancel default action
+    event.preventDefault();
 
     // Get the text from the form field
     const input = document.getElementById('address').value;
@@ -10,15 +17,20 @@ function handleSubmit(event) {
     } else {
         result = Client.showError('Please enter the full website including the http:// or https:// prefix.');
         console.log(result);
-    }    
+    };
 }
 
+/**
+ * Post the URL to local server to get text analysis, then
+ * display response.
+ * @param {*} urlToAnalyze
+ */
 async function analyzeArticle(urlToAnalyze) {
 
+    // Start loading indicator as soon as user clicks submit
     Client.showLoadingIndicator();
-    
-    try {
 
+    try {
         // Make request for data
         const response = await fetch('http://localhost:8081/analyze', {
             method: 'POST',
@@ -37,8 +49,8 @@ async function analyzeArticle(urlToAnalyze) {
             Client.showError('');
         } else {
             Client.showResult(analysis);
-        }
-        
+        };
+
     } catch (error) {
         console.log('error', error);
         Client.showError('');
@@ -46,7 +58,7 @@ async function analyzeArticle(urlToAnalyze) {
 
 }
 
-export { 
-    handleSubmit, 
+export {
+    handleSubmit,
     analyzeArticle,
-}
+};

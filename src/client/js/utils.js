@@ -1,13 +1,22 @@
+/* Global variables */
 const mAddressInput = document.getElementById('address');
 const mLoadingIndicator = document.getElementById('loading-indicator');
 const mError = document.getElementById('error-message');
 const mResult = document.getElementById('result');
 
+/**
+ * Takes a text string and identifies if it's a valid
+ * web address or not based on http prefix
+ * @param {} inputText
+ * @returns boolean
+ */
 function isWebsite(inputText) {
-    console.log("::: Running isWebsite :::", inputText);
     return inputText.toLowerCase().match(/^http/);
 }
 
+/**
+ * Displays the loading indicator
+ */
 function showLoadingIndicator() {
 
     // Hide any other displayed items
@@ -18,6 +27,10 @@ function showLoadingIndicator() {
     mLoadingIndicator.classList.add('visible');
 }
 
+/**
+ * Displays an error message to the user
+ * @param {} errorMessage
+ */
 function showError(errorMessage) {
 
     // Hide any other displayed items
@@ -29,10 +42,14 @@ function showError(errorMessage) {
         mError.textContent = 'We\'re sorry, an error occurred while trying to analyze your article.  Please make sure you have entered a valid site address, or try again later.';
     } else {
         mError.textContent = errorMessage;
-    }
+    };
     mError.classList.add('visible');
 }
 
+/**
+ * Displays the analysis result to the user
+ * @param {} analysis
+ */
 function showResult(analysis) {
 
     // Hide any other displayed items
@@ -53,20 +70,24 @@ function showResult(analysis) {
     mResult.classList.add('visible');
 }
 
+/**
+ * Resets the form input fields
+ */
 function resetForm() {
 
-    // Clear form 
+    // Clear form
     mAddressInput.value = '';
 
-    // Hide any errors or results
+    // Hide all displays
+    mLoadingIndicator.remove('visible');
     mError.classList.remove('visible');
     mResult.classList.remove('visible');
 }
 
-export { 
+export {
     isWebsite,
     showLoadingIndicator,
     showError,
     showResult,
     resetForm
-}
+};

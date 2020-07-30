@@ -1,5 +1,6 @@
 #error-message {
     display: none; /* Not visible by default */
+    visibility: hidden;
     border: 1px solid darkred;
     border-radius: 4px;
     background-color: mistyrose;
@@ -13,5 +14,6 @@
 
     &.visible {
         display: block;
+        visibility: visible;
     }
 }
